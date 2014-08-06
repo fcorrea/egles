@@ -32,8 +32,8 @@ func BindTexture(target, texture uint) {
 }
 func BlendColor(red, green, blue, alpha float32) {
 	C.glBlendColor(
-		C.GLclampf(red), C.GLclampf(green),
-		C.GLclampf(blue), C.GLclampf(alpha))
+		C.GLfloat(red), C.GLfloat(green),
+		C.GLfloat(blue), C.GLfloat(alpha))
 }
 func BlendEquation(mode uint) { C.glBlendEquation(C.GLenum(mode)) }
 
@@ -62,11 +62,11 @@ func Clear(mask uint) { C.glClear(C.GLbitfield(mask)) }
 
 func ClearColor(red, green, blue, alpha float32) {
 	C.glClearColor(
-		C.GLclampf(red), C.GLclampf(green),
-		C.GLclampf(blue), C.GLclampf(alpha))
+		C.GLfloat(red), C.GLfloat(green),
+		C.GLfloat(blue), C.GLfloat(alpha))
 }
 
-func ClearDepthf(depth float32) { C.glClearDepthf(C.GLclampf(depth)) }
+func ClearDepthf(depth float32) { C.glClearDepthf(C.GLfloat(depth)) }
 
 func ClearStencil(s int) { C.glClearStencil(C.GLint(s)) }
 
@@ -134,7 +134,7 @@ func DepthFunc(f uint) { C.glDepthFunc(C.GLenum(f)) }
 func DepthMask(flag bool) { C.glDepthMask(glBoolean(flag)) }
 
 func DepthRangef(zNear, zFar float32) {
-	C.glDepthRangef(C.GLclampf(zNear), C.GLclampf(zFar))
+	C.glDepthRangef(C.GLfloat(zNear), C.GLfloat(zFar))
 }
 func DetachShader(program, shader uint) {
 	C.glDetachShader(C.GLuint(program), C.GLuint(shader))
@@ -330,7 +330,7 @@ func RenderbufferStorage(target, internalformat uint, width, height int) {
 		C.GLsizei(width), C.GLsizei(height))
 }
 func SampleCoverage(value float32, invert bool) {
-	C.glSampleCoverage(C.GLclampf(value), glBoolean(invert))
+	C.glSampleCoverage(C.GLfloat(value), glBoolean(invert))
 }
 func Scissor(x, y, width, height int) {
 	C.glScissor(C.GLint(x), C.GLint(y), C.GLsizei(width), C.GLsizei(height))
